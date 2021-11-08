@@ -1,3 +1,4 @@
+from re import L
 from tkinter import *
 from tkinter import ttk
 from tkcalendar import *
@@ -26,6 +27,13 @@ def save_20():
     stotal = (int(total.get()) - int(expenses.get())) * .20
     savings = Label(root, text=f"Put {stotal} into savings")
     savings.pack()
+def select_date():
+    date_selected.config(text=cal.get_date())
+
+date = Button(root, text="select date", command=select_date)
+date.pack()
+date_selected = Label(root, text='')
+date_selected.pack()
 
 ttk.Label(root, text="Savings Calculator").pack()
 savings_5 = Button(root, text="Calculate savings at 5%", command=save_5)
@@ -35,7 +43,7 @@ savings_15.pack()
 savings_20 = Button(root, text="Calculate savings at 20%", command=save_20)
 savings_20.pack()
 
-ttk.Button(root, text="EXIT", command=root.destroy).pack()
+ttk.Button(root, text="EXIT", command=root.destroy).pack(side=BOTTOM)
 
 root.mainloop() 
 
