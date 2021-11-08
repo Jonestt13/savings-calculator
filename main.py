@@ -1,8 +1,12 @@
 from tkinter import *
 from tkinter import ttk
+from tkcalendar import *
 
 root = Tk()
 root.title("Savings Calc")
+
+cal = Calendar(root, selectmode="day", year=2021, month=11, day=1)
+cal.pack()
 
 total = Entry(root,bg="black", fg="white", bd=5)
 total.pack()
